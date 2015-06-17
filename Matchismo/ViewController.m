@@ -22,11 +22,12 @@
 @implementation ViewController
 - (Deck *)deck
 {
-    if (!_deck) {
-        _deck = [[PlayingCardDeck alloc] init];
-        self.flipCount = 0;
-    }
+    if (!_deck) _deck = [self createDeck];
     return _deck;
+}
+- (Deck *)createDeck
+{
+    return [[PlayingCardDeck alloc]init];
 }
 
 - (void)setFlipCount:(int)flipCount
@@ -42,29 +43,15 @@
         [sender setBackgroundImage:[UIImage imageNamed:@"cardback"]
                           forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
-        Card *nextCard = [self.deck drawRandomCard];
-        self.flipCount++;
-        if (nextCard) {
-            [self.deck addCard:nextCard];
-        } else {
-            sender.hidden = YES;
-        }
     } else {
-        Card *card = [self.deck drawRandomCard];
-        if (card) {
+        Card *randomCard = [self.deck drawRandomCard];
+        if (randomCard) {
             [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"]
                               forState:UIControlStateNormal];
-            [sender setTitle:card.contents forState:UIControlStateNormal];
-            self.flipCount++;
+            [sender setTitle:randomCard.contents forState:UIControlStateNormal];
         }
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self touchCardButton:self.cardButton];
-    self.flipCount = 0;
+    self.flipCount++;
 }
 
 @end
