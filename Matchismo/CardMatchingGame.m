@@ -11,6 +11,8 @@
 @interface CardMatchingGame()
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong) NSArray *lastChosenCards;
+@property (nonatomic, readwrite) NSInteger lastScore;
 @end
 
 @implementation CardMatchingGame
@@ -53,23 +55,40 @@
         if (card.isChosen) {
             card.chosen = NO;
         } else {
+            NSMutableArray *otherCards = [NSMutableArray array];
             for (Card *otherCard in self.cards) {
-                if (otherCard.isChosen && !otherCard.isMatched){
-                    int matchScore = [card match:@[otherCard]];
-                    if (matchScore) {
-                        self.score += matchScore * MATCH_BONUS;
-                        otherCard.matched = YES;
-                        card.matched = YES;
-                    } else {
-                        self.score -= MISMATCH_PENALTY;
-                        otherCard.chosen = NO;
-                    }
-                    break;
+                if (otherCard.isChosen && !otherCard.isMatched) {
+                    [otherCards addObject:otherCard];
                 }
             }
-            self.score -= COST_TO_CHOOSE;
+            self.lastScore = 0;
+            self.lastChosenCards = [otherCards arrayByAddingObject:card];
+            if ([otherCards count] + 1 == self.maxMatchingCards) {
+                int matchScore = [card match:otherCards];
+                if (matchScore) {
+                    self.lastScore = matchScore * MATCH_BONUS;
+                    card.matched = YES;
+                    for (Card *otherCard in otherCards) {
+                        otherCard.matched = YES;
+                    }
+                } else {
+                    self.lastScore = - MISMATCH_PENALTY;
+                    for (Card *otherCard in otherCards) {
+                        otherCard.chosen = NO;
+                    }
+                }
+            }
+            self.score += self.lastScore - COST_TO_CHOOSE;
             card.chosen = YES;
         }
     }
 }
+- (NSUInteger)maxMatchingCards
+{
+    if (_maxMatchingCards < 2) {
+        _maxMatchingCards = 2;
+    }
+    return _maxMatchingCards;
+}
+
 @end

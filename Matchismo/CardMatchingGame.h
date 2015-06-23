@@ -16,6 +16,9 @@
 -(void) chooseCardAtIndex:(NSUInteger)index;
 -(Card *)cardAtIndex:(NSUInteger)index;
 
+@property (nonatomic) NSUInteger maxMatchingCards;
+@property (nonatomic, readonly) NSArray *lastChosenCards;
+@property (nonatomic, readonly) NSInteger lastScore;
 @property (nonatomic, readonly) NSInteger score;
 
 @end
