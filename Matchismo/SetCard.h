@@ -13,5 +13,10 @@
 @property (strong, nonatomic) NSString *texture;
 @property (strong, nonatomic) NSString *color;
 @property (nonatomic) NSUInteger number;
++(NSArray *)validSymbols;
++(NSArray *)validTextures;
++(NSArray *)validColors;
++(NSUInteger)maxNumber;
++ (NSArray *)cardsFromText:(NSString *)text;
 
 @end

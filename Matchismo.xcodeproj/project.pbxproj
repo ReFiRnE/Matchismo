@@ -21,6 +21,8 @@
 		3B73DF551B2EE2470009EA37 /* MatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF541B2EE2470009EA37 /* MatchismoTests.m */; };
 		3B73DF601B2EED930009EA37 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF5F1B2EED930009EA37 /* Card.m */; };
 		3B73DF651B2EFAA50009EA37 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B73DF641B2EFAA50009EA37 /* Deck.m */; };
+		3B9F0B6C1B41F40D00139640 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F0B6B1B41F40D00139640 /* HistoryViewController.m */; };
+		3B9F0B6F1B42148B00139640 /* CardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B9F0B6E1B42148B00139640 /* CardGameViewController.m */; };
 		3BFA59781B2F142D000B24CF /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFA59771B2F142D000B24CF /* PlayingCard.m */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,10 @@
 		3B73DF5F1B2EED930009EA37 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Card.m; path = Model/Card.m; sourceTree = "<group>"; };
 		3B73DF631B2EFAA50009EA37 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Deck.h; path = Model/Deck.h; sourceTree = "<group>"; };
 		3B73DF641B2EFAA50009EA37 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Deck.m; path = Model/Deck.m; sourceTree = "<group>"; };
+		3B9F0B6A1B41F40D00139640 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		3B9F0B6B1B41F40D00139640 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		3B9F0B6D1B42148B00139640 /* CardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardGameViewController.h; sourceTree = "<group>"; };
+		3B9F0B6E1B42148B00139640 /* CardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardGameViewController.m; sourceTree = "<group>"; };
 		3BFA59761B2F142D000B24CF /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
 		3BFA59771B2F142D000B24CF /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,8 +114,12 @@
 				3B73DF621B2EFA820009EA37 /* Model */,
 				3B73DF3F1B2EE2460009EA37 /* ViewController.h */,
 				3B73DF401B2EE2460009EA37 /* ViewController.m */,
-				3B1F4E191B3D724A00014586 /* SetCardViewController.h */,
 				3B1F4E1A1B3D724A00014586 /* SetCardViewController.m */,
+				3B1F4E191B3D724A00014586 /* SetCardViewController.h */,
+				3B9F0B6A1B41F40D00139640 /* HistoryViewController.h */,
+				3B9F0B6B1B41F40D00139640 /* HistoryViewController.m */,
+				3B9F0B6D1B42148B00139640 /* CardGameViewController.h */,
+				3B9F0B6E1B42148B00139640 /* CardGameViewController.m */,
 				3B73DF421B2EE2460009EA37 /* Main.storyboard */,
 				3B73DF451B2EE2460009EA37 /* Images.xcassets */,
 				3B73DF471B2EE2460009EA37 /* LaunchScreen.xib */,
@@ -267,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B9F0B6F1B42148B00139640 /* CardGameViewController.m in Sources */,
 				3BFA59781B2F142D000B24CF /* PlayingCard.m in Sources */,
 				3B73DF651B2EFAA50009EA37 /* Deck.m in Sources */,
 				3B73DF411B2EE2460009EA37 /* ViewController.m in Sources */,
@@ -278,6 +289,7 @@
 				3B73DF601B2EED930009EA37 /* Card.m in Sources */,
 				3B1F4E151B3D708E00014586 /* SetCard.m in Sources */,
 				3B1F4E1B1B3D724A00014586 /* SetCardViewController.m in Sources */,
+				3B9F0B6C1B41F40D00139640 /* HistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

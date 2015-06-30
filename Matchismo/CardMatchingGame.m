@@ -9,20 +9,34 @@
 #import "CardMatchingGame.h"
 
 @interface CardMatchingGame()
+
 @property (nonatomic, readwrite) NSInteger score;
-@property (nonatomic, strong) NSMutableArray *cards;
+@property (nonatomic, strong) NSMutableArray *cards; // of Card
 @property (nonatomic, strong) NSArray *lastChosenCards;
 @property (nonatomic, readwrite) NSInteger lastScore;
+
 @end
 
 @implementation CardMatchingGame
 
-- (NSMutableArray *)cards
-{
-    if (!_cards) _cards = [[NSMutableArray alloc] init];
+- (NSMutableArray *)cards {
+    if (!_cards) {
+        _cards = [[NSMutableArray alloc] init];
+    }
     return _cards;
 }
--(instancetype)initWithCardCount:(NSUInteger)count usingDeck:(Deck *)deck
+
+- (NSUInteger)maxMatchingCards
+{
+    Card *card = [self.cards firstObject];
+    if (_maxMatchingCards < card.numberOfMatchingCards) {
+        _maxMatchingCards = card.numberOfMatchingCards;
+    }
+    return _maxMatchingCards;
+}
+
+- (instancetype)initWithCardCount:(NSUInteger)count
+                        usingDeck:(Deck *)deck
 {
     self = [super init];
     
@@ -37,20 +51,19 @@
             }
         }
     }
+    
     return self;
 }
--(Card *)cardAtIndex:(NSUInteger)index
-{
-    return (index<[self.cards count]) ? self.cards[index] : nil;
-}
 
-#define MISMATCH_PENALTY 2
-#define MATCH_BONUS 4
-#define COST_TO_CHOOSE 1
+//#define MISMATCH_PENALTY 2
+static const int MISMATCH_PENALTY = 2;
+static const int MATCH_BONUS = 4;
+static const int COST_TO_CHOOSE = 1;
 
--(void)chooseCardAtIndex:(NSUInteger)index
+- (void)chooseCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
+    
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;
@@ -83,12 +96,10 @@
         }
     }
 }
-- (NSUInteger)maxMatchingCards
+
+- (Card *)cardAtIndex:(NSUInteger)index
 {
-    if (_maxMatchingCards < 2) {
-        _maxMatchingCards = 2;
-    }
-    return _maxMatchingCards;
+    return (index < [self.cards count]) ? self.cards[index] : nil;
 }
 
 @end
