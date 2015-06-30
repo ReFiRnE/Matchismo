@@ -7,12 +7,11 @@
 //
 
 #import "Card.h"
-@interface Card()
 
+@interface Card()
 @end
 
 @implementation Card
-
 - (NSUInteger)numberOfMatchingCards
 {
     if (!_numberOfMatchingCards) _numberOfMatchingCards = 2;

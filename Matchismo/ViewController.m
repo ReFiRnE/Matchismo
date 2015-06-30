@@ -11,7 +11,6 @@
 #import "HistoryViewController.h"
 
 @interface ViewController ()
-
 @property (weak, nonatomic) IBOutlet UISegmentedControl *modeSelector;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) CardMatchingGame *game;

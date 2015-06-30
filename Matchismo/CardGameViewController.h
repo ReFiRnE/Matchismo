@@ -9,5 +9,4 @@
 #import "ViewController.h"
 
 @interface CardGameViewController : ViewController
-
 @end

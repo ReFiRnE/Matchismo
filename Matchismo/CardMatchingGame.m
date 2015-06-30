@@ -9,16 +9,13 @@
 #import "CardMatchingGame.h"
 
 @interface CardMatchingGame()
-
 @property (nonatomic, readwrite) NSInteger score;
 @property (nonatomic, strong) NSMutableArray *cards; // of Card
 @property (nonatomic, strong) NSArray *lastChosenCards;
 @property (nonatomic, readwrite) NSInteger lastScore;
 
 @end
-
 @implementation CardMatchingGame
-
 - (NSMutableArray *)cards {
     if (!_cards) {
         _cards = [[NSMutableArray alloc] init];
@@ -39,7 +36,6 @@
                         usingDeck:(Deck *)deck
 {
     self = [super init];
-    
     if (self) {
         for (int i = 0; i < count; i++) {
             Card *card = [deck drawRandomCard];
@@ -51,19 +47,16 @@
             }
         }
     }
-    
     return self;
 }
 
-//#define MISMATCH_PENALTY 2
-static const int MISMATCH_PENALTY = 2;
-static const int MATCH_BONUS = 4;
-static const int COST_TO_CHOOSE = 1;
+#define MISMATCH_PENALTY 2
+#define MATCH_BONUS 4
+#define COST_TO_CHOOSE 1
 
 - (void)chooseCardAtIndex:(NSUInteger)index
 {
     Card *card = [self cardAtIndex:index];
-    
     if (!card.isMatched) {
         if (card.isChosen) {
             card.chosen = NO;

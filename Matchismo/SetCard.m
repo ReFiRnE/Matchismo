@@ -13,11 +13,11 @@
 @synthesize texture = _texture;
 @synthesize color = _color;
 
-
 -(NSString *)symbol
 {
     return _symbol ? _symbol : @"?";
 }
+
 + (NSArray *)validSymbols
 {
     return @[@"oval", @"squiggle", @"diamond"];
@@ -32,11 +32,13 @@
 {
     return _texture ? _texture : @"?";
 }
+
 -(void)setTexture:(NSString *)texture
 {
     if ([[SetCard validTextures] containsObject:texture]) _texture = texture;
 }
-+ (NSArray *)validTextures
+
++(NSArray *)validTextures
 {
     return @[@"solid", @"open", @"striped"];
 }
@@ -50,23 +52,27 @@
 {
     if ([[SetCard validColors] containsObject:color]) _color = color;
 }
-+ (NSArray *)validColors
+
++(NSArray *)validColors
 {
     return @[@"red", @"green", @"purple"];
 }
 
-- (void)setNumber:(NSUInteger)number
+-(void)setNumber:(NSUInteger)number
 {
     if (number <= [SetCard maxNumber]) _number = number;
 }
-+ (NSUInteger)maxNumber
+
++(NSUInteger)maxNumber
 {
     return 3;
 }
-- (NSString *)contents
+
+-(NSString *)contents
 {
     return [NSString stringWithFormat:@"%@:%@:%@:%d", self.symbol, self.texture, self.color, self.number];
 }
+
 - (id)init
 {
     self = [super init];
@@ -77,7 +83,8 @@
     
     return self;
 }
-- (int)match:(NSArray *)otherCards
+
+-(int)match:(NSArray *)otherCards
 {
     int score = 0;
     if ([otherCards count] == self.numberOfMatchingCards - 1) {
@@ -111,7 +118,8 @@
     }
     return score;
 }
-+ (NSArray *)cardsFromText:(NSString *)text
+
++(NSArray *)cardsFromText:(NSString *)text
 {
     NSString *pattern = [NSString stringWithFormat:@"(%@):(%@):(%@):(\\d+)",
                          [[SetCard validSymbols] componentsJoinedByString:@"|"],

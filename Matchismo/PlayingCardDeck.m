@@ -13,7 +13,6 @@
 - (instancetype)init
 {
     self = [super init];
-    
     if (self) {
         for (NSString *suit in [PlayingCard validSuits]) {
             for (NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++) {
@@ -24,7 +23,6 @@
             }
         }
     }
-    
     return self;
 }
 

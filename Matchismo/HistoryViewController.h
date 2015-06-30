@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HistoryViewController : UIViewController
-@property (nonatomic, strong) NSArray *history; // of NSStrings || NSAttributedStrigns
-
+@property (nonatomic, strong) NSArray *history;
 @end

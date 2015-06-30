@@ -9,8 +9,6 @@
 #import "PlayingCard.h"
 
 @implementation PlayingCard
-
-
 @synthesize suit = _suit;
 
 + (NSArray *)validSuits

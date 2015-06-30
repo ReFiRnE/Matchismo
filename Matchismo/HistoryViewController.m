@@ -9,14 +9,10 @@
 #import "HistoryViewController.h"
 
 @interface HistoryViewController ()
-
 @property (weak, nonatomic) IBOutlet UITextView *historyTextView;
-
 @end
 
 @implementation HistoryViewController
-
-
 - (void)setHistory:(NSArray *)history
 {
     _history = history;
